@@ -1,30 +1,28 @@
-$(".create-form").on('submit', function (event) {
-	event.preventDefault();
+var orm = require('../config/orm.js');
 
-	var newBurger = {
-		name: $('#id').val().trim(),
-	};
+// Create the burger object
+var burger = {
+  // Select all burger table entries
+  selectAll: function(cb) {
+    orm.selectAll('burgers', function(res) {
+      cb(res);
+    });
+  },
 
-	$.ajax("/api/burgers", {
-		type: 'POST',
-		data: newBurger
-	}).then(function () {
-		console.log("created a new burger");
-		location.reload();
-	});
-});
-$(".eat").on('click', function (event) {
-	event.preventDefault();
-	var eatBurger = {
-		devoured: true
-	};
-	var id = $(this).data('id');
+  // The variables cols and vals are arrays
+  insertOne: function(cols, vals, cb) {
+    orm.insertOne('burgers', cols, vals, function(res) {
+      cb(res);
+    });
+  },
 
-	$.ajax("/api/burger/" + id, {
-		type: "PUT",
-		data: eatBurger
-	}).then(function () {
-		console.log("Your burger has been devoured");
-		location.assign("/");
-	});
-});
+  // The objColVals is an object specifying columns as object keys with associated values
+  updateOne: function(objColVals, condition, cb) {
+    orm.updateOne('burgers', objColVals, condition, function(res) {
+      cb(res);
+    });
+  }
+};
+
+// Export the database functions for the controller (burgerController.js).
+module.exports = burger;

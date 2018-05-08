@@ -1,35 +1,30 @@
 var mysql = require('mysql');
-var express = require('express');
-var bodyParser = require('body-parser');
 
-var app = express();
+// Create the MySQL connection object
+var connection;
 
-var PORT = process.env.PORT || 3000
+if (process.env.JAWSDB_URL) {
+	// DB is JawsDB on Heroku
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+	// DB is local on localhost
+	connection = mysql.createConnection({
+		port: 3306,
+		host: 'localhost',
+		user: 'root',
+		password: 'Amw489169',
+		database: 'burgers_db'
+	})
+};
 
-app.use(express.static('view'));
-app.use(bodyParser.urlencoded({extended: true }));
-app.use(bodyParser.json());
-
-var exphbs = require('express-handlebars');
-
-app.engine('handlebars', exphbs({ defaultLayout:"main"}));
-app.set('view engine', 'handlebars');
-
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password:'',
-	database: 'burgers_db'
+// Make the connection to MySQL
+connection.connect(function(err) {
+  if (err) {
+    console.error('ERROR: MySQL connection error -- ' + err.stack + '\n\n');
+    return;
+  }
+  console.log('Connected to MySQL database as id ' + connection.threadId + '\n\n');
 });
 
-connection.connect(function(err){
-	if (err){
-		console.log('error: ' + err.stack);
-		return;
-	}
-	console.log('You are connected:'+ connection.threadId);
-});
-app.listen(PORT, function(){
-	console.log("Server is listening on: http://localhost:" + PORT);
-})
+// Export connection for ORM use
 module.exports = connection;

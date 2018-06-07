@@ -13,11 +13,21 @@ body {
  
 }
 
+main {
+	flex: 1 0 auto;
+}
+
+.icon{
+	box-align: right;
+	height: 75px;
+	width: 75px;
+	margin: 20px;
+	float: right;
+}
 #cute_burger {
 	display: block;
 	 margin: auto;
 }
-
 h1 {
 	text-align: center;
 	font-family: 'Fontdiner Swanky', cursive;
@@ -56,6 +66,7 @@ h1 {
 }
 .burger {
 	border: 10px solid black;
+	flex: 1 0 auto;
 }
 h2 {
 	 text-align: center;
@@ -64,9 +75,7 @@ h2 {
 	margin: 50px;
 }
 
-.formContainer {
-	background-color: orange;
-}
+
 
 .addBurgerButton {
 	font-family: 'Shadows Into Light', cursive;

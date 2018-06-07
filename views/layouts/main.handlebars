@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 
@@ -7,24 +8,49 @@
 
 	<!-- Compiled and minified Materialize CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-<link rel="stylesheet" href="../../public/assets/style.css" type="text/css">
-	<title>Burgerlicious Devour Menu</title>
+	<link rel="stylesheet" href="../../public/assets/style.css" type="text/css">
+	<title>Burgerlicious Food Truck Menu</title>
 </head>
 
 <body>
 	<div class="burger">
-	<img src="../../public/assets/image/th.jpg" width="400px" id="cute_burger">
-
-	{{{ body }}}
+		<img src="../../public/assets/image/foodtruck.jpg" width="300px" id="cute_burger"> {{{ body }}}
 	</div>
 	<footer class="burgerFooter">
 		<div class="footer-copyright">
 			<div class="container">
-				<span class="grey-text text-lighten-4">© 2018 April Wilson</span>
-				<a class="grey-text text-lighten-4 right" href="https://github.com/aprilmariewilson">Github</a>
-				<a class="grey-text text-lighten-4 right" href="https://dashboard.heroku.com/apps">Heroku</a>
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">© 2018 April Wilson</h5>
+						<p class="grey-text text-lighten-4">You can find me on Github and Heroku.</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+
+						<img src="../../public/assets/image/github.jpg" alt="Github" class="icon" href="https://github.com/aprilmariewilson">
+						<img src="../../public/assets/image/heroku.jpg" alt="Heroku" class="icon" href="https://dashboard.heroku.com/apps">
+					</div>
+				</div>
+
+
+
+
+
+				{{!--
+
+				<span class="grey-text text-lighten-4">
+					<h5>© 2018 April Wilson</h5>
+				</span>
+
+
+				<img src="../../public/assets/image/github.jpg" alt="Github" class="icon" href="https://github.com/aprilmariewilson">
+				<img src="../../public/assets/image/heroku.jpg" alt="Heroku" class="icon" href="https://dashboard.heroku.com/apps"> --}} {{!--
+				<link rel="../../public/assets/image/github.jpg" href="https://github.com/aprilmariewilson" type="image"> --}} {{!--
+				<img src="../../public/assets/image/github.jpg" alt="Github" sizes="75x75" href="https://github.com/aprilmariewilson"> --}} {{!--
+				<img src="../../public/assets/image/heroku.jpg" alt="Heroku" sizes="75x75" href="https://dashboard.heroku.com/apps"> --}} {{!--
+				<a class="grey-text text-lighten-4 right" href="https://dashboard.heroku.com/apps">Heroku</a> --}}
 			</div>
 		</div>
 	</footer>
 </body>
+
 </html>
